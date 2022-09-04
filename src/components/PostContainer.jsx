@@ -40,9 +40,9 @@ export default function PostContainer() {
       itemsRef.current[index].play()    
        
      } 
-         console.log("this  is  my  video id", index) 
+        // console.log("this  is  my  video id", index) 
        }
-       console.log("current playing", curentPlay)
+       //console.log("current playing", curentPlay)
   return (
     <Box >
       
