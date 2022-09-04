@@ -1,0 +1,26 @@
+.tags-input{
+    margin-left: 8px;
+    border: unset;
+    outline: none;
+    border-radius: 7px;
+}
+
+.tags-input:focus{
+    border: unset;
+    outline: none; 
+    
+}
+.tagList{
+ margin-bottom: 10px;
+}
+.tagItem{
+    list-style-type: none;
+    background-color: blue;
+    padding: 3px 9px;
+     margin-left: 5px;
+     border-radius: 4px;
+     color: white;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
