@@ -7,7 +7,7 @@ import {ChakraProvider} from '@chakra-ui/react'
 import {apolloClient} from './graphql/Authentication/apoloClient'
 import {BrowserRouter} from 'react-router-dom'
 import theme from './theme/index';
-
+import console from 'console-browserify';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

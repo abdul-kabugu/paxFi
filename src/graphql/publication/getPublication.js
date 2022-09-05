@@ -6,7 +6,7 @@ export const EXPLORE_PUBLICATIONS = gql`
     sortCriteria: TOP_COMMENTED,
     publicationTypes: [POST, MIRROR],
     
-    sources :  ["pax123"]       
+    sources :  ["paxfi"]       
     
     
   }) {

@@ -3,6 +3,16 @@
     border: unset;
     outline: none;
     border-radius: 7px;
+    padding: 5px;
+}
+.input-currency{
+    width: 100px;
+    padding: 5px;
+    border: unset;
+    outline: none;
+    border-radius: 7px;
+    
+   
 }
 
 .tags-input:focus{

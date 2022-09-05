@@ -11,7 +11,7 @@ import '../global-styles.css'
 export default function Home() {
   const {data : recommendedProfiles, loading: isRecommendedProfilesLoading, error: isRecommendedError} =  useQuery(RECOMMENDED_PROFILES)
   const {data :posts, loading: isPostsLoading, error : isPostsError} = useQuery(EXPLORE_PUBLICATIONS)
- // console.log(posts)
+  console.log(posts)
   return (
    <Box >
       

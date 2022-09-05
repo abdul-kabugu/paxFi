@@ -29,7 +29,7 @@ export default function CreatePost() {
         const result = await saveFile("postMedia", postFile, { saveIPFS: true });
         setpostFileUri(result.ipfs())
           console.log(result.ipfs())
-          //console.log(postFileUri)
+         
           return result
        }
      const pageSteps = () => {
@@ -43,7 +43,7 @@ export default function CreatePost() {
         )
       }else if(page === 1){
         return(
-          <PostSettings  postCaption = {caption} setPostCaption={setcaption} />
+          <PostSettings  mediaURI = {postFileUri} setMedia = {setpostFileUri}/>
         )
       }
      }
@@ -51,7 +51,7 @@ export default function CreatePost() {
     <Box w="90%" mx="auto" >
         <Navbar />
       <Box h="88vh">
-      <Text>{postFileUri}</Text>
+    
         <Box>{pageSteps()}</Box>
          
         

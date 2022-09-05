@@ -49,6 +49,8 @@ export default function Navbar() {
         }
       }
     }) 
+
+    console.log(userProfile)
     const { colorMode, toggleColorMode } = useColorMode()
     
     const {signIn} = useSignIn()
@@ -157,7 +159,7 @@ export default function Navbar() {
           <Button leftIcon={<RiVideoAddLine size={23}/>} colorScheme="cyan" variant="outline" onClick={handleUploadBtn} mx={3} w="120px">Upload</Button>
         {
           !isAuthenticated || !account ? 
-          <Button onClick={() => authenticate({chainId : 0x13881, signingMessage:"connect your  wallet to poox"})} colorScheme="cyan" variant="outline">connect</Button> :
+          <Button onClick={() => authenticate({ signingMessage:"connect your  wallet to poox"})} colorScheme="cyan" variant="outline">connect</Button> :
            isAuthenticated && LENS_ACCESS_TOKEN == null && !isLoggedIn?
             <Button w="120px" leftIcon={<img src='/img/lens-2.png'   style={{width: "20px"}}/>} colorScheme="cyan" onClick={toggleLogInModal}>Login</Button> :
             <Box boxShadow="md" border="1px" borderColor="gray.200" display="flex" px={4} py={1} borderRadius={5} cursor="pointer">

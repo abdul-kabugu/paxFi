@@ -57,7 +57,7 @@ const useSignIn  = () => {
         const signature = await signText(challenge);
         // Get  access Token 
         const accessToken = await lensAuthenticate(account, signature);
-       //console.log({accessToken});
+       console.log({accessToken});
         // Store  access token  sessionStorage
         window.sessionStorage.setItem('accessToken', accessToken);
           

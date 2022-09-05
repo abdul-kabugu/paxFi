@@ -14,10 +14,10 @@ const API_URL = 'https://api-mumbai.lens.dev';
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) =>
-    /*  console.log(
+     console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )*/
-      alert( `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+      )
+      //alert( `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
     );
   if (networkError) alert(`[Network error]: ${networkError}`);
 });
