@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { ConnectButton } from "@web3uikit/web3"
+
 import { useMoralis } from 'react-moralis'
 import { RiEdit2Line, RiMenu2Line, RiUpload2Line, RiVideoAddLine } from 'react-icons/ri'
 import useSignIn from '../graphql/Authentication/useSignIn'
