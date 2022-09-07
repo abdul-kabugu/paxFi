@@ -1,32 +1,28 @@
 import {gql} from '@apollo/client'
- //["pax423"]
-export const EXPLORE_PUBLICATIONS = gql`
-  query{
-  explorePublications(request: {
-    sortCriteria: TOP_COMMENTED,
-    publicationTypes: [POST, MIRROR],
-    
-    sources :  ["paxfo"]       
-    
-    
-  }) {
-    
-      items {
+
+export const GET_PUBLICATION_REVENUE = gql`
+  query($request: PublicationRevenueQueryRequest!) {
+    publicationRevenue(request: $request) {
+      publication {
         __typename 
         ... on Post {
-          ...PostFields
+            ...PostFields
         }
         ... on Comment {
-          ...CommentFields
+            ...CommentFields
         }
         ... on Mirror {
-          ...MirrorFields
+            ...MirrorFields
         }
       }
-      pageInfo {
-        prev
-        next
-        totalCount
+      earnings {
+        asset {
+          name
+          symbol
+          decimals
+          address
+        }
+        value
       }
     }
   }
@@ -334,4 +330,4 @@ export const EXPLORE_PUBLICATIONS = gql`
       }
     }
   }
-`; 
+`;

@@ -65,12 +65,10 @@ const  useCreatePost = () => {
           metadata_id: uuidv4(),
           description: description,
           content: caption,
-          locale : "- en",
+          locale : "en-US",
            tags : tags,
-           mainContentFocus : {
-            VIDEO : 'VIDEO',
-           },
-          external_url: null,
+           mainContentFocus :  'VIDEO',
+           external_url: null,
           image: null,
           imageMimeType: null,
           name: caption,
@@ -83,7 +81,7 @@ const  useCreatePost = () => {
           ],
          
           animation_url : mediaURI,
-          appId: 'paxfi',
+          appId: 'paxfo',
         }
 
         

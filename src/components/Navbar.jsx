@@ -32,7 +32,7 @@ InputLeftElement
 import { GiDropWeapon, GiGroupedDrops } from 'react-icons/gi'
 import {MdDarkMode, MdLightMode, MdOutlineDarkMode, MdOutlineLightMode} from 'react-icons/md'
 import { FaSearch, FaAppStore, FaAndroid, FaChevronDown, FaGooglePlay, FaPowerOff  } from "react-icons/fa"
-export default function Navbar() {
+export default function Navbar({collectedTokens}) {
     const [searchTxt, setSearchTxt] = useState("")
     const [isLoginOpen, setIsLogInModal] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -199,7 +199,7 @@ export default function Navbar() {
                <Box display="flex" ml={1} w="90%" alignItems="center" mt={5}>
                 
                  <Text ml={1}  fontSize="lg">Point Blance</Text>
-                 <Text ml={2} fontWeight="black" fontSize="lg"> 400</Text>
+                 <Text ml={2} fontWeight="black" fontSize="lg"> {collectedTokens}</Text>
                </Box>
                <Box ml={1} mt={5} display="flex" alignItems="center" >
                 <Button leftIcon={<RiEdit2Line />}  colorScheme="cyan" variant="outline" onClick={toggleConnectPrfModal} >Edit my profile</Button>

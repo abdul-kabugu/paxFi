@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import {Route, Routes} from 'react-router-dom'
 import CreatePost from "./pages/CreatePost";
 import Navbar from "./components/Navbar";
+import UserPage from "./pages/UserPage";
 
 function App() {
   const {isWeb3Enabled, enableWeb3} = useMoralis()
@@ -20,6 +21,7 @@ function App() {
      <Routes>
       <Route  path="/"  element={ <Home />}     />
       <Route  path="/upload" element={<CreatePost />}  />
+      <Route   path="/:userId" element={<UserPage />} />
      </Routes>
     </div>
   );

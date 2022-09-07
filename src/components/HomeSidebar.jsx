@@ -1,8 +1,15 @@
 import { Heading, Box,Text, Avatar, Button, IconButton } from '@chakra-ui/react'
-import React from 'react'
+import React, {useState} from 'react'
 import { MdOutlinePersonAdd } from 'react-icons/md'
-
+import useCreateFollow from '../graphql/profile/createFollowTypedData'
 export default function HomeSidebar({ data, isDataLoading, }) {
+  const [profileToFollow, setProfileToFollow] = useState()
+  const {follow}  = useCreateFollow()
+ const handleFollow = async (account) => {
+  setProfileToFollow(account)
+    await follow(profileToFollow?.id)
+ }
+ console.log("the account to follow",  profileToFollow)
   return (
     <Box>
  
@@ -24,7 +31,7 @@ export default function HomeSidebar({ data, isDataLoading, }) {
                       >@{profiles?.handle}</Text>
                       </Box>
                       <Box ml="auto">
-                        <IconButton      icon={<MdOutlinePersonAdd size={25} color="#78D6B9"/>}     border="1px" borderColor="#5AC8C8"      />
+                        <IconButton      icon={<MdOutlinePersonAdd size={25} color="#78D6B9"/>}     border="1px" borderColor="#5AC8C8"    onClick={() => handleFollow(profiles)}  />
                       </Box>
                     </Box>
                 )

@@ -5,6 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import {BsPercent} from 'react-icons/bs'
 import useCreatePost from '../graphql/publication/createPostTypedData'
 import { useMoralis } from 'react-moralis'
+import moment from 'moment'
 export default function PostSettings({mediaURI,  setMedia}) {
 
   const [caption, setCaption] = useState("")
@@ -16,7 +17,10 @@ export default function PostSettings({mediaURI,  setMedia}) {
   const [postPrice, setPostPrice] = useState("")
   const [refferalFee, setrefferalFee] = useState("")
   const [postRefrence, setPostRefrence] = useState("false")
-  const {account} = useMoralis()
+  const {account, Moralis, isAuthenticated} = useMoralis()
+  const [isHolder, setIsHolder] = useState(false)
+  const [userRunes, setUserRunes] = useState(0)
+  const [daysStreak, setDaysStreak] = useState(-1)
   const addNewTag = (event) => {
    if(event.key === "Enter" && addTag !== "" && tag.length < 5){
      setTag([...tag, addTag])
@@ -79,7 +83,37 @@ export default function PostSettings({mediaURI,  setMedia}) {
     }
    }
 
-   
+     // get coins  function
+
+     const getCoins = async () => {
+      const users = Moralis.Object.extend("runeCollectors")
+      const query = new Moralis.Query(users)
+      query.equalTo("ethAddress", account)
+      const data = await query.first();
+      const {daysInArow, lastCollected, runes} = data?.attributes;
+      if(moment(lastCollected).isBefore(moment.utc(), "minutes")){
+          if(isHolder){
+              data.increment("runes", holders[daysInArow])
+              data.set("lastCollected", moment.utc().format())
+              setUserRunes(runes + days[daysInArow]);
+          } else if(isAuthenticated) {
+          data.increment("runes", days[daysInArow])
+          data.set("lastCollected", moment.utc().format())
+          setUserRunes(runes + days[daysInArow]);
+          }
+          if(daysInArow === 6){
+              data.set("daysInArow", 0)
+              setDaysStreak(0)
+          }else {
+              data.increment("daysInArow")
+              setDaysStreak(daysInArow +1)
+          }
+          data.save()
+  
+      }
+  }
+   const days = [1, 1, 1, 1, 1,1, 1]
+   const holders = [20, 20, 20, 20, 20, 20, 40]
   return (
     <Box w="100%" h="79vh" mx="auto"  padding={1} display="flex">
       <Box w="90%" h="92%" mx="auto" mt={10} display="flex" justifyContent="space-between">
