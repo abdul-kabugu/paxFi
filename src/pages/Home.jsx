@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import HomeSidebar from '../components/HomeSidebar'
 import Navbar from '../components/Navbar'
@@ -11,6 +11,7 @@ import '../global-styles.css'
 import { useState, useEffect } from 'react'
 import useCollectors from '../hooks/useColectors'
 import { useMoralis, useMoralisQuery } from 'react-moralis'
+import  BounceLoader from "react-spinners/BounceLoader"
 export default function Home() {
   const {account, user, initialize, isInitialized, isAuthenticated} = useMoralis()
   const [userData, setUserData] = useState()
@@ -39,12 +40,28 @@ export default function Home() {
   }, [posts?.explorePublications.items, isAuthenticated, isInitialized, userRunes ])
  console.log("this is user data from home", userRunes)
   
+
+     if(isRecommendedProfilesLoading &&  isPostsLoading){
+      return(
+        <Box  w="100vw" h="100vh" display="flex" alignItems="center" justifyContent="center">
+          <BounceLoader size={100} color="#36d7b7"/>
+        </Box>
+      )
+     }
+
+     if(isRecommendedError || isPostsError ) {
+      return(
+        <Box w="100vw" h="100vh" display="flex" alignItems="center" justifyContent="center">
+           <Text fontSize="2xl">Something Went Wrong please  Refresh  </Text>
+        </Box>
+      )
+     }
   return (
    <Box >
       
       <Navbar collectedTokens = {userRunes}/>
       <Box w="90%" h="90vh" mx="auto" maxW="1200px" p={3} display="flex">
-       <Box w="49%" h="95%" minWidth="400px" overflowY="hidden" overflowX="hidden"  p={3} borderRadius={12} boxShadow="lg" mr={5}>
+       <Box w="49%" h="95%" minWidth="400px" overflowY="hidden" overflowX="hidden"  p={10} borderRadius={12} boxShadow="lg" mr={5}>
         <Box h="72%" overflowY="hidden" overflowX="hidden">
        <HomeSidebar data ={recommendedProfiles} isDataLoading = {isRecommendedProfilesLoading} isDatError = {isRecommendedError}/>
        </Box>

@@ -10,6 +10,7 @@ import { GET_USER_PROFILES } from '../graphql/profile/getUserProfile'
 import { useParams } from 'react-router-dom'
 import { useMoralis } from 'react-moralis'
 import { motion,  isValidMotionProp, animate} from 'framer-motion'
+import BounceLoader from 'react-spinners/BounceLoader'
 
 const VideoBox = chakra(motion.div, {
   
@@ -49,6 +50,13 @@ export default function UserPage() {
        </Box>
 
        <Box w="100%" h="100%" >
+        {
+          pubsLoading ?
+          <Box  w="100%" h="100vh" display="flex" alignItems="center" justifyContent="center">
+          <BounceLoader size={100} color="#36d7b7"/>
+        </Box> :
+
+          <div>
         <Box display="flex" alignItems="center" mt={3}  p={4} >
             <Avatar   size="2xl"   name='abdul' src={userProfile?.profile.picture?.original.url} />
             <Box display="flex"  ml={10}>
@@ -83,7 +91,7 @@ export default function UserPage() {
                       scale: 1.1
                      }}
                       
-                     
+                    
                     >
                   {items?.metadata.media?.map((media, index) => {
                      
@@ -104,6 +112,8 @@ export default function UserPage() {
 
            
             </Box>
+            </div>
+}
        </Box>
        
     </Box>

@@ -117,7 +117,7 @@ export default function PostSidebar({data}) {
       </Modal>
         <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" mb={1}>
        <IconButton  icon={<HiOutlineCollection size={30}/>}    onClick={() => handleOpenCollectModal(data)}/>
-        <Text>2</Text>
+        <Text>{data.stats.totalAmountOfCollects}</Text>
        </Box>
 
        <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column"  mb={1}>

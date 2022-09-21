@@ -86,7 +86,7 @@ const useCreateMirror = () => {
         },
       });
     } catch (error) {
-        console.log("the create mirror  error", error)
+        alert(error)
     }
   }
   return {createMirror}

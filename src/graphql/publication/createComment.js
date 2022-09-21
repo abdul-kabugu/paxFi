@@ -125,7 +125,7 @@ const createCommentTypedData = (createCommentTypedDataRequest) => {
                   console.log('create comment: tx hash', tx.hash);
 
                 }catch (error) {
-                    console.log("something went wrong", error)
+                    alert(error)
                 }
 
 

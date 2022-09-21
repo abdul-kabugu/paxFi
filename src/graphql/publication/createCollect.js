@@ -80,7 +80,7 @@ const  thePrfId = user?.attributes.lensProfileId
         
     
      catch (error) {
-        alert("the  error  from collect", error)
+        alert(error)
      }
 
   }
