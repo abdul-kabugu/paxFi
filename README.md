@@ -43,5 +43,14 @@ make  sure  you  sign the  message  with  the  account  address you  used  to  c
     
     ###  account dosen't  hold  valid profile  id 
     
-    recheck  your  connected  account  and  make  sure  the connected  account  ===  the  account  used  to  create profile 
+    recheck  your  connected  account  and  make  sure  the connected  account  ===  the  account  used  to  create profile
+
+
+  #Contributors
+I noticed   at the contributors section  it show 
+two person    Abdul and karagwe  
+ but all of these accounts is owned by me 
+  I can comfirm if is required (for hackathon judges )
+
+I committed with another account by mistake 
 
