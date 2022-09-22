@@ -108,12 +108,9 @@ export default function PostSettings({mediaURI,  setMedia}) {
   }
 
   const createNewPost = async (mydescription, mycaption, tags, myMediaURI,   mycollectModule, mypostRefrence, thePostModule, getPostRefrenceModule) => {
-    try{
+    
      await createPost(mydescription, mycaption, tags, myMediaURI, mycollectModule, mypostRefrence, thePostModule, getPostRefrenceModule)
-      await getCoins()
-    } catch(error) {
-      console.log("this error when  creating post", error)
-    }
+    await getCoins()
    }
    const days = [1, 1, 1, 1, 1,1, 1]
    const holders = [20, 20, 20, 20, 20, 20, 40]

@@ -32,7 +32,7 @@ export default function UserPage() {
           request : {
             profileId : userId,
             publicationTypes :  ["POST",  "MIRROR"],
-            sources : ["paxfi"]
+            sources : ["paxfo"]
           }
         }
        })
