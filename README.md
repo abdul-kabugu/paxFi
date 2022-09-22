@@ -4,7 +4,7 @@ Here  is the  link to  wrking  demo [Pax-Fi](https://pax-fi.vercel.app/).
 
 ## User Guide
 
-Follow  thise  steps to 
+Follow  thise  steps to create post
 
 ### Create lens-protocol  profile / handle
 
